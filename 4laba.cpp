@@ -1,4 +1,3 @@
-
 #include<vector>
 #include<iostream>
 
@@ -26,7 +25,7 @@ bool my_any_of(InputIterator it_begin, InputIterator it_end, UnaryPredicate func
 template <typename InputIterator, typename UnaryPredicate>
 bool my_none_of(InputIterator it_begin, InputIterator it_end, UnaryPredicate func)
 {
-    return !any_of(it_begin, it_end, func);
+    return !my_any_of(it_begin, it_end, func);
 }
 
 template <typename InputIterator, typename UnaryPredicate>
@@ -123,7 +122,8 @@ int main()
 {
     vector<int> v = {1, 2, 3, 4, 3, 2, 1};
     cout << "all_of: " << endl;
-    cout << my_all_of(v.begin(), v.end(), segment<int>(1, 4)());
+    cout << my_all_of(v.begin(), v.end(), segment<int>(1, 4)) << endl;
+    cout << my_all_of(v.begin(), v.end(), segment<int>(1, 3)) << endl;
     cout << "is_sorted: " << endl;
     cout << my_is_sorted(v.begin(), v.end(), cmp<int>()) << endl;
     cout << my_is_sorted(v.begin(), v.end() - 3, cmp<int>()) << endl;
