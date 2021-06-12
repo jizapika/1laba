@@ -40,6 +40,7 @@ bool one_of(InputIterator it_begin, InputIterator it_end, UnaryPredicate func)
 template <typename InputIterator, typename BinaryPredicate>
 bool my_is_sorted(InputIterator it_begin, InputIterator it_end, BinaryPredicate func)
 {
+    if(it_begin == it_end) return true;
     InputIterator prev = it_begin;
     it_begin++;
     for(; it_begin != it_end; it_begin++)
@@ -53,6 +54,7 @@ bool my_is_sorted(InputIterator it_begin, InputIterator it_end, BinaryPredicate 
 template <typename InputIterator, typename UnaryPredicate>
 bool my_is_partitioned(InputIterator it_begin, InputIterator it_end, UnaryPredicate func)
 {
+    if(it_begin == it_end) return true;
     InputIterator prev = it_begin;
     it_begin++;
     int sum = 0;
